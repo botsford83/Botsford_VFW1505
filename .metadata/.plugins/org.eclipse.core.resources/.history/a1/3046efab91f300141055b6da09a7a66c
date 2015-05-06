@@ -1,0 +1,73 @@
+Ti.UI.setBackgroundColor("#000");
+
+
+var margin = 20;
+var font = {fontSize: 14, fontFamily: "Helvetica", fontWeight: "bold", fontsStyle: "italic"};
+
+
+var mainWindow = Ti.UI.createWindow({
+	//Reserved Properties
+	title: "My First Window",
+	backgroundColor: "#fff",
+	backgroundImage: "camo.png",
+	backgroundRepeat: true,
+});
+
+var myHeader = Ti.UI.createView({
+	//Reserved Properties
+	backgroundColor: "#333",
+	borderColor: "red",
+	borderRadius: 5,
+	borderWidth: 1,
+	height: 100,
+	top: margin,
+	left: margin,
+	right: margin,
+	zIndex: 1,
+	//These are custom properties
+	id: "Header",
+	cost: "$100",
+});
+
+var myBody = Ti.UI.createView({
+	backgroundColor: "#333",
+	borderColor: "red",
+	borderRadius: 5,
+	borderWidth: 1,
+	height: 100,
+	top: myHeader.top + myHeader.height + margin,
+	left: margin,
+	right: margin,
+	zIndex: 2,
+});
+
+var myHeaderText = Ti.UI.createLabel({
+	text: "Header",
+	color: "#999",
+	font: font,
+	top: myHeader.top,
+	width: 60,
+	left: margin,
+	right: margin,
+	backgroundColor: "#000",
+	borderRadius: 5,
+	borderColor: "#999",
+	zIndex: 3,
+});
+
+var myBodyText = Ti.UI.createLabel({
+	text: "Body",
+	color: "#999",
+	font: font,
+	top: myBody.top,
+	width: 60,
+	left: margin,
+	right: margin,
+	backgroundColor: "#000",
+	borderRadius: 5,
+	borderColor: "Pink",
+	zIndex: 4,
+});
+
+mainWindow.add(myHeader, myBody, myHeaderText, myBodyText);
+mainWindow.open();

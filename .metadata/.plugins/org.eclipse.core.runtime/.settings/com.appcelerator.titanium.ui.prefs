@@ -1,4 +1,8 @@
 =run
+Botsford_Bryan_project1\:launchMode=run
+Botsford_Bryan_project1\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.7101DC44-D9DD-4D76-8079-317E23338AF6
+FirstProject\:launchMode=run
+FirstProject\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.EDFE0D22-8B94-4641-8407-F2F45010DF26
 LAST_LAUNCH_TIMESTAMP=1430784500891
 eclipse.preferences.version=1
 preference.show.console.onError=true

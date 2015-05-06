@@ -1,0 +1,51 @@
+Ti.UI.setBackgroundColor("#000");
+
+
+var margin = 20;
+
+var mainWindow = Ti.UI.createWindow({
+	//Reserved Properties
+	title: "My First Window",
+	backgroundColor: "#fff",
+	backgroundImage: "camo.png",
+	backgroundRepeat: true,
+});
+
+var myFirstView = Ti.UI.createView({
+	//Reserved Properties
+	backgroundColor: "#333",
+	borderColor: "#843",
+	borderRadius: 5,
+	borderWidth: 1,
+	height: 100,
+	top: margin,
+	left: margin,
+	right: margin,
+	zIndex: 1,
+	//These are custom properties
+	id: "Header",
+	cost: "$100",
+});
+
+var mySecondView = Ti.UI.createView({
+	backgroundColor: "red",
+	borderRadius: 5,
+	borderWidth: 1,
+	height: 100,
+	top: myFirstView.top + myFirstView.height + margin,
+	left: margin,
+	right: margin,
+	zIndex: 2,
+});
+
+var myText = Ti.UI.createLabel({
+	text: "Hello World!",
+	color: "#fff",
+	font: {fontSize: 14, fontFamily: "AmericanTypewriter", fontWeight: "Bold", fontsStyle: "italic"},
+	top: margin,
+	left: margin,
+	right: margin,
+});
+
+mainWindow.add(myFirstView, myText);
+mainWindow.open();

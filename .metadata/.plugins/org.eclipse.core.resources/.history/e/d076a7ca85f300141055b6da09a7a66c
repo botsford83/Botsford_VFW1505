@@ -1,0 +1,8 @@
+Ti.UI.setBackgroundColor("#09c5db");
+
+var mainWindow = Ti.UI.createWindow({
+	//Reserved Properties
+	backgroundColor: "000"
+});
+
+mainWindow.open();

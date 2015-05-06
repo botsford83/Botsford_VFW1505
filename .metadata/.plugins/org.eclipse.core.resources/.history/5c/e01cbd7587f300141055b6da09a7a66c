@@ -1,0 +1,11 @@
+Ti.UI.setBackgroundColor("#000");
+
+var mainWindow = Ti.UI.createWindow({
+	//Reserved Properties
+	backgroundColor: "#fff",
+	backgroundImage: "camo.png",
+	backgroundRepeat: true,
+	title: "My First Window",
+});
+
+mainWindow.open();
