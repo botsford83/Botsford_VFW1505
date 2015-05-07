@@ -1,0 +1,123 @@
+
+var mainWindow = Ti.UI.createWindow({
+	//Reserved Properties
+	title: "My First Window",
+	backgroundColor: "#fff",
+	backgroundImage: "camo.png",
+	backgroundRepeat: true,
+});
+var loadFile = required("app2");
+//Views
+var myHeader = Ti.UI.createView({
+	//Reserved Properties
+	backgroundColor: "#333",
+	borderColor: "red",
+	borderRadius: 20,
+	borderWidth: 1,
+	height: 100,
+	top: margin,
+	left: margin,
+	right: margin,
+	//These are custom properties
+	id: "Header",
+	cost: "$100",
+});
+var myBody = Ti.UI.createView({
+	backgroundColor: "#333",
+	borderColor: "red",
+	borderRadius: 20,
+	borderWidth: 1,
+	height: 100,
+	top: myHeader.top + myHeader.height + margin,
+	left: margin,
+	right: margin,
+});
+var buttonNextView = Ti.UI.createView({
+	backgroundColor: "#333",
+	font: {fontSize: 50, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
+	bottom: margin,
+	right: margin,
+	borderRadius: 30,
+	height: 70,
+	width: 100,
+	borderColor: "red",
+	borderWidth: 1,
+});
+var buttonPreviousView = Ti.UI.createView({
+	backgroundColor: "#333",
+	font: {fontSize: 50, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
+	bottom: margin,
+	left: margin,
+	borderRadius: 30,
+	height: 70,
+	width: 100,
+	borderColor: "red",
+	borderWidth: 1,
+});
+var answerView = Ti.UI.createView({
+	backgroundColor: "#333",
+	font: {fontSize: 50, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
+	bottom: margin,
+	left: margin,
+	borderRadius: 30,
+	height: 70,
+	width: 100,
+	borderColor: "red",
+	borderWidth: 1,
+});
+//Labels
+var headerLabel = Ti.UI.createLabel({
+	text: "Please select the sport you would like to participate in.",
+	color: "Red",
+	font: font,
+	textAlign: "center",
+	left: margin,
+	right: margin,
+	top: myHeader.height /2,
+});
+var bodyLabel = Ti.UI.createLabel({
+	text: "",
+	color: "Red",
+	font: {fontSize: 20, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
+	textAlign: "center",
+	top: 25,
+	right: 25,
+	left: 25,
+	bottm: 25,
+});
+var myNext = Ti.UI.createLabel({
+	text: "NEXT ->",
+	color: "red",
+	font: font,
+	textAlign: "center",
+});
+var myPrevious = Ti.UI.createLabel({
+	text: "<- Previous",
+	color: "red",
+	font: font,
+	textAlign: "center",
+});
+var nextClick = function(){
+		if (sportsArray == 3){
+        sportsArray = 0;
+       	}
+        	else{
+            sportsArray++;
+       		}
+				bodyLabel.text = sports[sportsArray];
+};
+var previousClick = function(){
+		if (sportsArray == 0){
+        sportsArray = 3;
+       	}
+        	else{
+            sportsArray--;
+       		}
+				bodyLabel.text = sports[sportsArray];
+};
+
+mainWindow.add(myHeader, myBody, myNext, myPrevious, buttonNextView, buttonPreviousView, headerLabel);
+myBody.add(bodyLabel);
+buttonNextView.add(myNext);
+buttonPreviousView.add(myPrevious);
+mainWindow.open();
