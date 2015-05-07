@@ -74,7 +74,7 @@ var headerLabel = Ti.UI.createLabel({
 var bodyLabel = Ti.UI.createLabel({
 	text: "",
 	color: "Red",
-	font: {fontSize: 30, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
+	font: {fontSize: 40, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
 	textAlign: "center",
 	top: myBody.top / 2,
 	right: 25,
@@ -96,7 +96,7 @@ var myPrevious = Ti.UI.createLabel({
 var answerLabel = Ti.UI.createLabel({
 	text: "ACCEPT",
 	color: "Red",
-	font: {fontSize: 40, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
+	font: {fontSize: 30, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
 	textAlign: "center",
 	top: buttonAnswerView.top + 25,
 	right: 25,

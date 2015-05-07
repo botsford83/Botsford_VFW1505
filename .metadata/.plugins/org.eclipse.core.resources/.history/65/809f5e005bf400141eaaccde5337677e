@@ -74,7 +74,7 @@ var headerLabel = Ti.UI.createLabel({
 var bodyLabel = Ti.UI.createLabel({
 	text: "",
 	color: "Red",
-	font: {fontSize: 30, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
+	font: {fontSize: 40, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
 	textAlign: "center",
 	top: myBody.top / 2,
 	right: 25,
