@@ -1,0 +1,57 @@
+var myHeader = Ti.UI.createView({
+	//Reserved Properties
+	backgroundColor: "#333",
+	borderColor: "red",
+	borderRadius: 20,
+	borderWidth: 1,
+	height: 100,
+	top: 20,
+	left: 20,
+	right: 20,
+	//These are custom properties
+	id: "Header",
+	cost: "$100",
+});
+var myBody = Ti.UI.createView({
+	backgroundColor: "#333",
+	borderColor: "red",
+	borderRadius: 20,
+	borderWidth: 1,
+	height: 200,
+	top: myHeader.top + myHeader.height + 20,
+	left: 20,
+	right: 20,
+});
+var buttonNextView = Ti.UI.createView({
+	backgroundColor: "#333",
+	font: {fontSize: 50, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
+	bottom: 20,
+	right: 20,
+	borderRadius: 30,
+	height: 70,
+	width: 100,
+	borderColor: "red",
+	borderWidth: 1,
+});
+var buttonPreviousView = Ti.UI.createView({
+	backgroundColor: "#333",
+	font: {fontSize: 50, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
+	bottom: 20,
+	left: 20,
+	borderRadius: 30,
+	height: 70,
+	width: 100,
+	borderColor: "red",
+	borderWidth: 1,
+});
+var answerView = Ti.UI.createView({
+	backgroundColor: "#333",
+	font: {fontSize: 50, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
+	bottom: 20,
+	left: 20,
+	borderRadius: 30,
+	height: 70,
+	width: 100,
+	borderColor: "red",
+	borderWidth: 1,
+)};

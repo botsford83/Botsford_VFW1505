@@ -1,0 +1,31 @@
+var headerLabel = Ti.UI.createLabel({
+	text: "Please select the sport you would like to participate in.",
+	color: "Red",
+	font: {fontSize: 14, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
+	textAlign: "center",
+	left: 20,
+	right: 20,
+	top: myHeader.height /2,
+});
+var bodyLabel = Ti.UI.createLabel({
+	text: "",
+	color: "Red",
+	font: {fontSize: 40, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
+	textAlign: "center",
+	top: myBody.top / 2,
+	right: 25,
+	left: 25,
+	bottm: 25,
+});
+var myNext = Ti.UI.createLabel({
+	text: "NEXT ->",
+	color: "red",
+	font: {fontSize: 14, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
+	textAlign: "center",
+});
+var myPrevious = Ti.UI.createLabel({
+	text: "<- Previous",
+	color: "red",
+	font: {fontSize: 14, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
+	textAlign: "center",
+});

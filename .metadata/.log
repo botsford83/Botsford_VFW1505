@@ -627,3 +627,9 @@ Caused by: java.io.IOException: error=7, Argument list too long
 	at java.lang.ProcessImpl.start(ProcessImpl.java:91)
 	at java.lang.ProcessBuilder.start(ProcessBuilder.java:452)
 	... 17 more
+
+!ENTRY com.appcelerator.titanium.android.core 4 0 2015-05-06 19:20:10.072
+!MESSAGE There are no Android devices connected
+
+!ENTRY com.appcelerator.titanium.android.core 4 0 2015-05-06 19:24:46.245
+!MESSAGE There are no Android devices connected

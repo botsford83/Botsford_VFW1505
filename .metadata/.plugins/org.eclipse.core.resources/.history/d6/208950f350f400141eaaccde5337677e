@@ -1,0 +1,24 @@
+var sports = ["FOOTBALL", "BASKETBALL", "SOCCER", "BASEBALL", "TENNIS", "HOCKEY", "VOLLEYBALL"];
+var sportsArray = 0;
+var nextClick = function(){
+		if (sportsArray == 6){
+        sportsArray = 0;
+       	}
+        	else{
+            sportsArray++;
+       		}
+				bodyLabel.text = sports[sportsArray];
+};
+var previousClick = function(){
+		if (sportsArray == 0){
+        sportsArray = 6;
+       	}
+        	else{
+            sportsArray--;
+       		}
+				bodyLabel.text = sports[sportsArray];
+};
+buttonNextView.addEventListener("click", nextClick);
+buttonPreviousView.addEventListener("click", previousClick);
+
+

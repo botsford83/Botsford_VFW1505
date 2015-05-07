@@ -18,16 +18,13 @@ var myHeader = Ti.UI.createView({
 	top: 20,
 	left: 20,
 	right: 20,
-	//These are custom properties
-	id: "Header",
-	cost: "$100",
 });
 var myBody = Ti.UI.createView({
 	backgroundColor: "#333",
 	borderColor: "red",
 	borderRadius: 20,
 	borderWidth: 1,
-	height: 100,
+	height: 200,
 	top: myHeader.top + myHeader.height + 20,
 	left: 20,
 	right: 20,
@@ -54,16 +51,15 @@ var buttonPreviousView = Ti.UI.createView({
 	borderColor: "red",
 	borderWidth: 1,
 });
-var answerView = Ti.UI.createView({
+var buttonAnswerView = Ti.UI.createView({
 	backgroundColor: "#333",
-	font: {fontSize: 50, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
-	bottom: 20,
-	left: 20,
-	borderRadius: 30,
-	height: 70,
-	width: 100,
 	borderColor: "red",
+	borderRadius: 20,
 	borderWidth: 1,
+	height: 100,
+	top: myBody.top + myBody.height + 20,
+	left: 20,
+	right: 20,
 });
 //Labels
 var headerLabel = Ti.UI.createLabel({
@@ -78,9 +74,9 @@ var headerLabel = Ti.UI.createLabel({
 var bodyLabel = Ti.UI.createLabel({
 	text: "",
 	color: "Red",
-	font: {fontSize: 20, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
+	font: {fontSize: 40, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
 	textAlign: "center",
-	top: 25,
+	top: myBody.top / 2,
 	right: 25,
 	left: 25,
 	bottm: 25,
@@ -97,9 +93,18 @@ var myPrevious = Ti.UI.createLabel({
 	font: {fontSize: 14, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
 	textAlign: "center",
 });
+var answerLabel = Ti.UI.createLabel({
+	text: "ACCEPT",
+	color: "Red",
+	font: {fontSize: 40, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"},
+	textAlign: "center",
+	top: buttonAnswerView.top + 25,
+	right: 25,
+	left: 25,
+});
 
-var loadFile = require("app2");
-mainWindow.add(myHeader, myBody, myNext, myPrevious, buttonNextView, buttonPreviousView, headerLabel);
+var loadFile = require("FUNCTIONS");
+mainWindow.add(myHeader, myBody, myNext, myPrevious, buttonNextView, buttonPreviousView, headerLabel, buttonAnswerView, answerLabel);
 myBody.add(bodyLabel);
 buttonNextView.add(myNext);
 buttonPreviousView.add(myPrevious);

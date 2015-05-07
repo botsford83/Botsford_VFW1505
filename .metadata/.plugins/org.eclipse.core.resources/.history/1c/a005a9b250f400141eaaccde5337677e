@@ -1,0 +1,17 @@
+
+var mainWindow = Ti.UI.createWindow({
+	//Reserved Properties
+	title: "My First Window",
+	backgroundColor: "#fff",
+	backgroundImage: "camo.png",
+	backgroundRepeat: true,
+});
+
+var loadFile = require("LABELS");
+var loadFile = requre("VIEWS");
+var loadFile = require("app2");
+mainWindow.add(myHeader, myBody, myNext, myPrevious, buttonNextView, buttonPreviousView, headerLabel);
+myBody.add(bodyLabel);
+buttonNextView.add(myNext);
+buttonPreviousView.add(myPrevious);
+mainWindow.open();
