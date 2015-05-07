@@ -31,7 +31,7 @@ var answerFunc = function(){
 			buttonNextView.hide();
 			buttonPreviousView.hide();
 			myNext.hide();
-			myPrevious.hide();
+			myPrevious();
 		}
 			
 };

@@ -28,10 +28,6 @@ var answerFunc = function(){
 			headerLabel.hide();
 			buttonAnswerView.hide();
 			answerLabel.hide();
-			buttonNextView.hide();
-			buttonPreviousView.hide();
-			myNext.hide();
-			myPrevious.hide();
 		}
 			
 };
