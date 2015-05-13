@@ -20,7 +20,7 @@ var previousClick = function(){
 };
 var answerFunc = function(){
 	if (bodyLabel.text != sports[sportsArray]) {
-		bodyLabel.Font = {fontSize: 30, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"};
+		bodyLabel.Font = {fontSize: 30, fontFamily: "Chalkduster", fontWeight: "bold", fontsStyle: "italic"}
 		bodyLabel.text = "Please Select A Sport.";
 	}
 		else{

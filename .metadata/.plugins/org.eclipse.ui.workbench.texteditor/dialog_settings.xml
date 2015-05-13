@@ -5,9 +5,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="wholeword"/>
-		<item value="first" key="selection"/>
+		<item value="titleView" key="selection"/>
 		<list key="findhistory">
-			<item value="first"/>
+			<item value="titleView"/>
+			<item value="hsSports"/>
+			<item value="sportsSection"/>
+			<item value="sportsSection."/>
+			<item value="sportsSec"/>
+			<item value="sports"/>
+			<item value="ships"/>
+			<item value="frigates"/>
 		</list>
 	</section>
 </section>

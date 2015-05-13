@@ -1,0 +1,162 @@
+Titanium.UI.setBackgroundColor('#000');
+
+
+var frigates = [
+				{title: "Atron", description: "Hello"}, 
+				{title: "imicus"}, 
+				{title: "Incursus"}, 
+				{title: "Maulus"}, 
+				{title: "Navigation"}
+				];
+// Custom Header
+var tableHeader = Ti.UI.createView({
+	height: 50,
+	backgroundColor: "green"
+});
+var headerText = Ti.UI.createLabel({
+	text: "Superhero",
+	font: {fontSize: 22, fontWeight: "bold"},
+	color: "black"
+});
+tableHeader.add(headerText);
+
+// Custom Footer
+var customFooter = Ti.UI.createView({
+	height: 50,
+	backgroundColor: "green"
+});
+var cfText = Ti.UI.createLabel({
+	text: "",
+	font: {fontSize: 12},
+	color: "blue",
+	left: 18,
+	top: 4
+});
+customFooter.add(cfText);
+
+var mainWindow = Ti.UI.createWindow({
+	backgroundColor: "#f5f5f5"
+});
+
+var titleView = Ti.UI.createView({
+	height: 65,
+	backgroundColor: "#fff",
+	top: 0
+});
+
+
+var border = Ti.UI.createView({
+	backgroundColor: "#dbdbdb",
+	height: 1,
+	top: titleView.height + titleView.top
+});
+
+var titleLabel = Ti.UI.createLabel({
+	text: "Gallente Tech 1 Frigates",
+	font: {fontsize: 20, fontFamily: "Arial", fontWeight: "bold"},
+	top: 30,
+	width: "100%",
+	textAlign: "center"
+});
+
+var ships = Ti.UI.createTableView({
+	top: border.top + border.height,
+	
+});
+
+if(Ti.Platform.name === "iPhone OS"){
+	ships.style = Ti.UI.iPhone.TableViewStyle.GROUPED;
+}
+
+var frigatesSection = Ti.UI.createTableViewSection({
+	headerTitle: "Tech 1 Frigates",
+	headerView: tableHeader,
+	//footerTitle: "Gallente Frigate Ships"
+});
+
+var cruisersSections = Ti.UI.createTableViewSection({
+	headerTitle: "Tech 1 Cruisers",
+	footerTitle: "Gallente Cruiser Ships"
+});
+
+var getDetail = function(){
+	var detailWindow = Ti.UI.createWindow({
+		backgroundColor: "f5f5f5",
+	});
+	var detailTitleView = Ti.UI.createView({
+	height: 65,
+	backgroundColor: "#fff",
+	top: 0
+	});
+	var detailBorder = Ti.UI.createView({
+	backgroundColor: "#dbdbdb",
+	height: 1,
+	top: detailTitleView.height + detailTitleView.top
+	});
+	var detailTitleLabel = Ti.UI.createLabel({
+	text: this.title,
+	font: {fontsize: 20, fontFamily: "Arial", fontWeight: "bold"},
+	top: 30,
+	width: "100%",
+	textAlign: "center"
+	});
+	
+	var detailText = Ti.UI.createLabel({
+	text: this.desc,
+	font: {fontsize: 14, fontFamily: "Arial"},
+	top: detailBorder.height + detailBorder.top + 40,
+	left: 10,
+	right: 10,
+});
+
+var closeButton = Ti.UI.createLabel({
+	backgroundColor: "#333",
+	text: "Close Window",
+	color: "#fff",
+	height: 50,
+	font: {fontsize: 12, fontFamily: "Arial"},
+	width: "100%",
+	bottom: 0,
+	textAlign: "center"
+});
+
+var closeWindow = function(){
+	detailWindow.close({transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT});
+};
+
+	closeButton.addEventListener("click", closeWindow);
+	
+	detailTitleView.add(detailTitleLabel);
+	detailWindow.add(detailTitleView, detailBorder, detailText, closeButton);
+	
+	detailWindow.open({transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT});
+};
+
+
+
+for(i = 0, j = frigates.length; i < j; i++){
+	var theRow = Ti.UI.createTableViewRow({
+		title: frigates[i].title, 
+		desc: frigates[i].description,
+		hasChild: true
+	});
+	
+	if(Ti.Platform.name === "iPhone OS"){
+		theRow.hasChild = false;
+		theRow.hasDetail = true;
+	}
+	frigatesSection.add(theRow);
+	theRow.addEventListener("click", getDetail);
+};
+
+var loadFile = require("FUNCTIONS");
+var shipsSections = [frigatesSection];
+
+
+ships.setData(shipsSections);
+
+titleView.add(titleLabel);
+mainWindow.add(titleView, border, ships);
+mainWindow.open();
+
+

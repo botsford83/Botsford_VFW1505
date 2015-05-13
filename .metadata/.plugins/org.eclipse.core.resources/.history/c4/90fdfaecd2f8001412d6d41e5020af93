@@ -1,0 +1,97 @@
+//MainWindow
+var mainWindow = Ti.UI.createWindow({
+	backgroundColor: "#fff"
+});
+//Fall Sports
+var fSports = [{title: "Football"}, {title: "Tennis"}, {title: "Volleyball"}];
+var fallTitle = Ti.UI.createView({
+	backgroundColor: "#fff",
+	height:15,
+	top: 0
+});
+var fallBorder = Ti.UI.createView({
+	backgroundColor: "#dbdbdb",
+	height: 1,
+	top: fallTitle.height + fallTitle.top
+});
+var fallLabel = Ti.UI.createLabel({
+	text: "Fall Sports",
+	font: {fontSize: 20, fontFamily: "Arial", fontWeight: "bold"},
+	top: 30,
+	width: "100%",
+	textAlign: "center"
+});
+//Winter Sports
+var wSports = [{title: "Basketball"}, {tile: "Wrestling"}, {title: "Swim Team"}];
+var winterTitle = Ti.UI.createView({
+	backgroundColor: "#fff",
+	height: 15,
+	top: fallTitle.height + fallTitle.top + fallBorder.height
+});
+var winterBorder = Ti.UI.createView({
+	backgroundColor: "#dbdbdb",
+	height: 1,
+	top: winterTitle.height + winterTitle.top
+});
+var winterLabel = Ti.UI.createLabel({
+	text: "Winter Sports",
+	font: {fontSize: 20, fontFamily: "Arial", fontWeight: "bold"},
+	top: 30,
+	width: "100%",
+	textAlign: "center"
+});
+//Spring Sports
+var sSports = [{title: "Track"}, {tile: "Golf"}, {title: "Soccer"}];
+var springTitle = Ti.UI.createView({
+	backgroundCOlor: "#fff",
+	height: 15,
+	top: winterTitle.height + winterTitle.top + winterBorder.height
+});
+var springBorder = Ti.UI.createView({
+	backgroundColor: "#dbdbdb",
+	height: 1,
+	top: springTitle.height + springTitle.top
+});
+var springLabel = Ti.UI.createLabel({
+	text: "Spring Sports",
+	font: {fontSize: 20, fontFamily: "Arial", fontWeight: "bold"},
+	top: 30,
+	width: "100%",
+	textAlign: "center",
+});
+//Tables
+var fallSports = Ti.UI.createTableView({
+	data: fSports,
+	top: fallBorder.height + fallBorder.top
+});
+	if(Ti.Platform.name === "iPhone OS"){
+		fallSports.style = Ti.UI.iPhone.TableViewStyle.GROUPED;
+	}
+var winterSports = Ti.UI.createTableView({
+	data: wSports,
+	top: winterBorder.height + winterBorder.top
+});
+	if(Ti.Platform.name === "iPhone OS"){
+		winterSports.style = Ti.UI.iPhone.TableViewStyle.GROUPED;
+	}
+var springSports = Ti.UI.createTableView({
+	data: sSports,
+	top: springBorder.height + springBorder.top
+});
+	if(Ti.Platform.name === "iPhone OS"){
+		springSports.style = Ti.UI.iPhone.TableViewStyle.GROUPED;
+	}
+	
+
+//Data
+fallSports.setData(fSports);
+winterSports.setData(wSports);
+springSports.setData(sSports);
+
+//Opening Application
+fallTitle.add(fallLabel);
+winterTitle.add(winterLabel);
+springTitle.add(springLabel);
+mainWindow.add(fallTitle, fallBorder, fallSports, winterTitle, winterBorder, winterSports, springTitle, springBorder, springSports); 
+mainWindow.open();
+

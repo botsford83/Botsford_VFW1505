@@ -1,8 +1,8 @@
 
 var mainWindow = Ti.UI.createWindow({
 	//Reserved Properties
-	title: "My First Window",
-	backgroundColor: "#fff",
+	//title: "My First Window",
+	//backgroundColor: "#fff",
 	backgroundImage: "camo.png",
 	backgroundRepeat: true,
 });

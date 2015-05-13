@@ -1,0 +1,173 @@
+Titanium.UI.setBackgroundColor('#000');
+//Data//
+var fallSports = [{title: "Football"}, {title: "Tennis"}, {title: "Volleyball"}];
+var winterSports = [{title: "Basketball"}, {tile: "Wrestling"}, {title: "Swim Team"}];
+var springSports = [{title: "Track"}, {tile: "Golf"}, {title: "Soccer"}];
+//Custom Headers and Customer Footers//
+var cHeader = Ti.UI.createView({
+	height: 30,
+	backgroundColor: "#878787"
+});
+var cHeadText = Ti.UI.createLabel({
+	text: "High School Sports",
+	font: {fontSize: 22, fontWeight: "bold"},
+	color: "#fff",
+	left: 18
+});
+cHeader.add(cHeadText);
+var cFooter = Ti.UI.createView({
+	height: 50,
+	backgroundColor: "#efeff4"
+});
+var cFootText = Ti.UI.createLabel({
+	text: "Kearney High School",
+	font: {fontSize: 12},
+	color: "#aaa",
+	left: 18,
+	top: 4
+});
+cFooter.add(cFootText);
+//Main Window//
+var mainWindow = Ti.UI.createWindow({
+	backgroundColor: "#f5f5f5"
+});
+var titleView = Ti.UI.createView({
+	height: 65,
+	backgroundColor: "#fff",
+	top: 0
+});
+var border = Ti.UI.createView({
+	backgroundColor: "#dbdbdb",
+	height: 1,
+	top: titleView.height + titleView.top
+});
+var titleLabel = Ti.UI.createLabel({
+	text: "High School Sports",
+	font: {fontSize: 20, fontFamily: "Arial", fontWeight: "bold"},
+	top: 30,
+	width: "100%",
+	textAlign: "center"
+});
+//Table Views//
+var sports = Ti.UI.createTableView({
+	top: border.top + border.height,
+});
+if(Ti.Platform.name === "iPhoneOS"){
+	sports.style = Ti.UI.iPhone.TableViewStyle.GROUPED;
+}
+
+//Table View Sections//
+var fallSection = Ti.UI.createTableViewSection({
+	headerTitle: cHeader,
+	footerTitle: cFooter,
+});
+var winterSection = Ti.UI.createTableViewSection({
+	headerTitle: cHeader,
+	footerTitle: cFooter,
+});
+var springSection = Ti.UI.createTableViewSection({
+	headerTitle: cHeader,
+	footerTitle: cFooter,
+});
+//Functions//
+var getDetail = function(){
+	var detailWindow = Ti.UI.creatWindow({
+		backgroundColor: "#f5f5f5"
+	});
+		var detailTitleView = Ti.UI.createView({
+		height: 65,
+		backgroundColor: "#fff",
+		top: 0
+	});
+		var detailBorder = Ti.UI.createView({
+		backgroundColor: "#dbdbdb",
+		height: 1,
+		top: detailTitleView.height + detailTitleView.top
+	});
+		var detailTitleLabel = Ti.UI.createView({
+		text: this.title,
+		font: {fontSize: 20, fontFamily: "Arial", fontWeight: "bold"},
+		top: 30,
+		width: "100%",
+		textAlight: "center"
+	});
+	
+	var detailText = Ti.UI.createLabel({
+		text: this.desc,
+		font: {fontSize: 14, fontFamily: "Arial", fontWeight: "bold"},
+		top: detailBorder.height + detailBorder.top + 40,
+		left: 10,
+		right: 10,		
+	});
+	
+	var closeButton = Ti.UI.createLabel({
+		text: "Close Window",
+		backgroundColor: "#333",
+		color: "#fff",
+		height: 50,
+		font: {fontSize: 12, fontFamily: "Arial", fontWeight: "bold"},
+		width: "100%",
+		bottm: 0,
+		textAlign: "center"
+	});
+	
+	var closeWindow = function(){
+		detailWindow.close();
+	};
+	
+	closeButton.addEventListener("click", closeWindow);
+	
+	detailTitleView.add(detailTitleLabel);
+	detailWindow.add(detailTitleView, detailBorder, detailText);
+	
+	detailWindow.open();
+	
+};
+//Loops for Data//
+for(var i = 0, j = fallSports.length; i < j; i++){
+	var fallRow = Ti.UI.createTableViewRow({
+		title: fallSports[i].title,
+		desc: fallSports[i].description,
+		hasChild: true
+	});
+		if(Ti.Platform.name === "iPhone OS"){
+			fallRow.hasChild = false;
+			fallRow.hasDetail = true;
+		}
+			fallSection.add(fallRow);
+			fallRow.addEventListener("click", getDetail);
+	}
+for(var i = 0, j = winterSports.length; i < j; i++){
+	var winterRow = Ti.UI.createTableViewRow({
+		title: winterSports[i].title,
+		desc: winterSports[i].description,
+		hasChild: true
+	});
+		if(Ti.Platform.name === "iPhone OS"){
+			winterRow.hasChild = false;
+			winterRow.hasDetail = true;
+		}
+	winterSection.add(winterRow);
+	winterRow.addEventListener("click", getDetail);
+}
+for(var i = 0, j = springSports.length; i < j; i++){
+	var springRow = Ti.UI.createTableViewRow({
+		title: springSports[i].title,
+		desc: springSports[i].description,
+		hasChild: true
+	});
+		if(Ti.Platform.name === "iPhone OS"){
+			springRow.hasChild = false;
+			springRow.hasDetail = true;
+		}
+	springSection.add(springRow);
+	springRow.addEventListener("click", getDetail);
+}
+//
+var sportSection = [fallSports, winterSports, springSports];
+//
+sports.setData(sportSection);
+//
+titleView.add(titleLabel);
+mainWindow.add(titleView, border, sports);
+mainWindow.open();

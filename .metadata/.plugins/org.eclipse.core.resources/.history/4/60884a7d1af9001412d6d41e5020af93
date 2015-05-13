@@ -1,0 +1,26 @@
+
+//Main Window//
+var mainWindow = Ti.UI.createWindow({
+	backgroundColor: "#f5f5f5"
+});
+var titleView = Ti.UI.createView({
+	height: 65,
+	backgroundColor: "#fff",
+	top: 0
+});
+var border = Ti.UI.createView({
+	backgroundColor: "#dbdbdb",
+	height: 1,
+	top: titleView.height + titleView.top
+});
+var titleLabel = Ti.UI.createLabel({
+	text: "High School Sports",
+	font: {fontSize: 20, fontFamily: "Arial", fontWeight: "bold"},
+	top: 30,
+	width: "100%",
+	textAlign: "center"
+});
+var loadFile = require("jSon");
+titleView.add(titleLabel);
+mainWindow.add(titleView, border, sports);
+mainWindow.open();
